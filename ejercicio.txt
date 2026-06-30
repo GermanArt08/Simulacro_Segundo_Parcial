@@ -1,0 +1,21 @@
+»»»»» Ejercicio «««««
+
+Armar un sistema para administrar los costos de la exposición de Refik Anadol en un centro cultural de la ciudad durante todo el mes de agosto.
+
+Se deberán ingresar los datos de la cantidad de obras a exponer y, por cada obra, su nombre, la cantidad de pantallas que requiere y el costo por día de cada pantalla. Ingresar también la cantidad de visitantes esperados por día y el precio de cada entrada. 
+
+Se quiere conocer:
+1. el costo total de uso de pantallas durante todo el mes de exposición
+2. la ganancia esperada al finalizar el mes de exposición, considerando los visitantes esperados, el precio de las entradas y el costo de las pantallas
+3. la obra de mayor costo por día y su costo mensual
+
+Una vez que se obtienen los resultados se debe habilitar un botón para reiniciar.
+
+
+»»»»» Tener en cuenta «««««
+
+- Todos los datos deben ser validados.
+- Los datos deben ser ingresados utilizando formularios.
+- Se deben habilitar y deshabilitar las opciones para el ingreso de datos según lo requiera cada momento de ejecución.
+-- Cuando se debe ingresar una cantidad determinada de datos y se cumple esa cantidad, se debe deshabilitar la opción para seguir ingresando.
+-- Las opciones para calcular resultados no se deben habilitar hasta que se haya finalizado la carga de datos necesaria para poder realizar los cálculos. 
