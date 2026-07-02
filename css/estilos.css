@@ -1,0 +1,97 @@
+/*ESTILOS GENERALES*/
+* {box-sizing: border-box;}
+#contenedor {
+    width: 100%;
+    max-width: 960px;
+    font-family: 'Arvo', sans-serif;
+    margin: 0 auto;
+}
+body {
+    background-image: url(../img/fondo.png);
+    background-attachment: fixed;
+}
+main {
+    background-color: #E6F5FF;
+    padding: 1.5rem;
+}
+aside {
+    padding: 0.5rem;
+    background-color: aliceblue;
+    text-align: center;
+    border: 0.15rem solid #004675;
+}
+/*Header y Footer*/
+header, footer {
+    background-color:#002B47 ;
+    color: #E6F5FF;
+    padding: 2rem 1rem;
+    text-align: center;
+}
+header h1 {
+    margin: 0 0 0.5rem 0;
+    font-size: 2.5rem;
+}
+header h2 {
+    margin-bottom: 1.5rem;
+    font-weight: normal;
+    font-style: oblique;
+    font-size: 1.2rem;
+}
+/*NAVEGADOR*/
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin:0;
+    display: flex;
+}
+nav li {
+    margin: 0;
+    display: inline-block;
+}
+nav a {
+    display: block;
+    padding: 0.6em 1.2em;
+    border: 0.15rem solid #002B47;
+    color: #004675;
+    text-decoration: none;
+    font-weight: bold;
+    background-color: #47B4FF;
+}
+section a:visited {
+    color: #47B4FF; 
+}
+a:hover {
+    background-color: #E6F5FF;
+    color: #004675;
+}
+a:active {
+    background-color: #004675;
+    color:#E6F5FF;
+}
+/*TIPOGRAFIA*/
+h1,h2 {
+    text-align: center;
+}
+h3, h4{
+    color: #ffffff;
+    background-color: #0099FF ;
+    padding: 0.8rem 1rem;
+    margin: 1rem 0 1rem 0;
+    border: 0.15rem solid #004675;
+}
+h4 {
+    font-size: larger;
+}
+span {
+    font-weight: bolder;
+    color: #004675;
+}
+/*Imágenes y video*/
+img {
+    margin: 1rem 0;
+}
+iframe {
+    width: 100%;
+    max-width: 560px;
+    height: 315px;
+}
