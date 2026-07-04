@@ -1,75 +1,62 @@
-// Declaro primero todas las variables globales
-let cantObras = document.querySelector("#cantObras").value
-let nombre = document.querySelector("#nombre").value
-let cantPant = document.querySelector("#cantPant").value
-let costoXdia = document.querySelector("#costoXdia").value
-let cantVisit = document.querySelector("#cantVisit").value
-
+const cantObras = 2;
+let obras =[];
 const boton = document.querySelector("#boton")
-
-boton.addEventListener ("click", function(e)){
+boton.addEventListener ("click", function(e){
     e.preventDefault ()
     ingresarDatos()
-}
+})
 //Pongo que la cantidad de obras sea undefined, ya que el usuario es quien la define
-cantObras = [];
+
 
 function ingresarDatos (){
     //poner aca las primeras variables
     let cantObras = document.querySelector("#cantObras").value
-    if (apellido == "") {
-        alert("El apellido no puede estar vacío");
+    if (cantObras == "" || isNaN(cantObras)) {
+        alert("Ingrese una cantidad de obras válida");
         return false;
     }
     let nombre = document.querySelector("#nombre").value
     if (nombre == "") {
         alert("El nombre no puede estar vacío");
         return false;
-    }
-        
-    
-        
-    let edad =document.querySelector("#edad").value
-    if (edad == "" || isNaN(edad)) {
-        alert("Ingrese una edad válida");
+    }    
+    let cantPant = document.querySelector("#cantPant").value
+    if (cantPant == "" || isNaN(cantPant)) {
+        alert("Ingrese una cantidad de pantallas válida");
         return false;
     }
-    let num = document.querySelector("#numero").value
-    if (num == "" || isNaN(num)) {
+    let costoXdia = document.querySelector("#costoXdia").value
+    if (costoXdia == "" || isNaN(costoXdia)) {
         alert("Ingrese un número válido");
         return false;
     }
-    let tiempo = document.querySelector ("#tiempo").value
-    if (tiempo =="" || isNaN(tiempo)) {
-        alert("Ingrese un tiempo válido");
+    let cantVisit = document.querySelector("#cantVisit").value
+    if (cantVisit =="" || isNaN(cantVisit)) {
+        alert("Ingrese una cantidad de visitantes válida");
         return false;
     }
 
-    const corredor = {
+    const obra = {
         nombre: nombre,
-        apellido: apellido,
-        edad: Number(edad),
-        num: Number(num),
-        tiempo: Number(tiempo),
+        costoXdia: Number(costoXdia),
     }
-    corredores.push(corredor)
+    obras.push(obra)
     alert ("Datos ingresados correctamente")
 
     vaciarFormulario();
 }
 function vaciarFormulario () {
+    document.querySelector ("#cantObras").value = "";
     document.querySelector ("#nombre").value = "";
-    document.querySelector ("#apellido").value = "";
-    document.querySelector ("#edad").value = "";
-    document.querySelector ("#numero").value = "";
-    document.querySelector ("#tiempo").value = "";
+    document.querySelector ("#cantPant").value = "";
+    document.querySelector ("#costoXdia").value = "";
+    document.querySelector ("#cantVisit").value = "";
 
     verificarCantDatos();
 }
 function verificarCantDatos() {
-    if (corredores.length>=cantidad) {
+    if (obras.length>=cantObras) {
         boton.disabled = true;
     calcularResultados();
     }
-}
 }
