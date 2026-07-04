@@ -42,10 +42,10 @@
         <div class="campos">
             <p id="pedido">A continuación, se le pedirá ingresar datos para calcular los costos de Refik Anadol en un centro cultural de la ciudad durante todo el mes de agosto</p>
             <legend>Ingresar con los datos solicitados</legend>
-
             <label for="cantObras">Cantidad de obras a exponer:</label>
             <input type="number" id="cantObras" name="cantObras">
-
+            <p id="infoCantidad"></p>
+            <fieldset id="resto" style="display:none">
             <label for="nombre">Nombre de la obra:</label>
             <input type="text" id="nombre" name="nombre">
 
@@ -58,7 +58,13 @@
             <label for="cantVisit">Cantidad de visitantes esperados:</label>
             <input type="cantVisit" id="cantVisit" name="cantVisit">
 
-            <button type="button" id="boton">Enviar</button>
+            <label for="precioEntrada">Precio por entrada</label>
+            <input type="precioEntrada" id="precioEntrada" name="precioEntrada">
+            </fieldset>
+
+            <button type="button" id="btnEnviar">Enviar</button>
+            <button type ="button" id="btnCalcular" style="display: none;">Calcular</button>
+            <button type="button" id="btnReset" style="display: none;">Reiniciar</button>
         </div>
     </form>
     <ul class="listado">
@@ -71,5 +77,6 @@
             </address>
         </footer>
     </div>
+    <script src="js/script.js"></script>
     </body>
 </html>
