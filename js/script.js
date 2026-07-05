@@ -1,4 +1,4 @@
-let obras = [];
+let obras = [];//Pongo que la cantidad de obras sea undefined, ya que el usuario es quien la define
 let cantidadTotal = 0;
 let contadorObras = 0;
 let resto = document.querySelector("#resto");
@@ -14,7 +14,7 @@ btnEnviar.addEventListener ("click", function(e){
     e.preventDefault ();
     ingresarDatos();
 })
-//Pongo que la cantidad de obras sea undefined, ya que el usuario es quien la define
+
 function ingresarDatos() {
     if (cantidadTotal === 0) { 
         let cantObrasInput = document.querySelector("#cantObras");
@@ -65,11 +65,11 @@ function ingresarDatos() {
         }
 
         const obra = {
-            nombreObj: nombre,
-            costoXdiaObj: Number(costoXdia),
-            cantPantObj: Number(cantPant),
-            cantVisitObj: Number(cantVisit),
-            precioEntradaObj: Number(precioEntrada)
+            nombre: nombre,
+            costoXdia: Number(costoXdia),
+            cantPant: Number(cantPant),
+            cantVisit: Number(cantVisit),
+            precioEntrada: Number(precioEntrada)
             }
         obras.push(obra)
         contadorObras++;
@@ -97,21 +97,58 @@ btnCalcular.addEventListener("click", function(e) {
     e.preventDefault();
     calcularResultado();
 })
+btnReset.addEventListener("click", function(e){
+    e.preventDefault();
+    vaciarFormulario();
+})
 function calcularResultado(){
     let totalPantallas = 0;
     let gananciaTotal = 0;
 
+//Recorro el objeto con for
+    for (let i = 0; i < obras.length; i++) {
+        let obra = obras[i];
+//Calculo el total de pantallas
+        totalPantallas += obra.cantPant * obra.costoXdia * 31;
+//Calculo la ganancia total
+        gananciaTotal += (obra.precioEntrada * obra.cantVisit) - (obra.cantPant * obra.costoXdia * 31);
+        let textoGanancia = "";
+    let claseColor = "";
+
+    if (gananciaTotal >= 0) {
+        textoGanancia = `Ganancia esperada: $${gananciaTotal}`;
+        claseColor = "color: green;";
+    } else {
+        textoGanancia = `Pérdida esperada: $${Math.round(gananciaTotal)}`;
+        claseColor = "color: red;";
+    }
+//Ubico obra más cara
+    if (obras.length === 0) return;
+    let obraMasCara = obras[0];// Suponemos que la primera es la más cara
+
     for (let i = 0; i < obras.length; i++) {
         let obra = obras[i];
 
-        totalPantallas += obra.cantPantallas * obra.costoXdia * 31;
+        // Calculamos el costo mensual de esta obra
+        let costoMensual = obra.costoXdia * 31;
 
-        gananciaTotal += (precioEntrada * obra.cantVisitantes) - (obra.cantPantallas * obra.costoXdia * 31);
+        // Comparamos para encontrar la más cara
+        if (obra.costoXdia > obraMasCara.costoXdia) {
+            obraMasCara = obra;
+        }
     }
-
+    const costoMensualMasAlto = obraMasCara.costoXdia * 31;
+    // Mostrar resultado
     listado.innerHTML = `
-        <h2>Resultados finales</h2>
-        <p>Costo total de uso de pantallas durante todo el mes: $${totalPantallas}</p>
-        <p>Ganancia esperada: $${gananciaTotal}</p>
+        <h3>Resultados finales</h3>
+        <p><strong>Total costo de pantallas (mes):</strong> $${totalPantallas}</p>
+
+        <p style="${claseColor}"><strong>${textoGanancia}</strong></p>
+
+        <h3>Obra más cara por día:</h3>
+        <p><strong>${obraMasCara.nombre}</strong></p>
+        <p>Costo por día: $${obraMasCara.costoXdia}</p>
+        <p>Costo mensual (31 días): $${costoMensualMasAlto}</p>
     `;
+    }
 }
